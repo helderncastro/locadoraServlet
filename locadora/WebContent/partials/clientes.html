@@ -1,0 +1,62 @@
+
+<link rel="stylesheet" type="text/css" href="css/clientes.css">
+
+<div id="content" class="row" ng-controller="ClientesController">
+	<div class="col s8 offset-s2">
+		<div class="row" ng-if="inserting">
+		
+			<label for="idCliente">ID</label> 
+			<input id="idCliente" type="text" ng-model="clienteEdit.id" disabled /> 
+			<label for="nomeCliente">Nome</label>
+			<input id="nomeCliente" type="text" ng-model="clienteEdit.nome" /> 
+			<label for="cpfCliente">CPF</label> 
+			<input id="cpfCliente" type="text" ng-model="clienteEdit.cpf" /> 
+			<label for="telefoneCliente">Telefone</label>
+			<input id="telefoneCliente" type="text"	ng-model="clienteEdit.telefone" /> 
+			<label for="emailCliente">E-mail</label>
+			<input id="emailCliente" type="text" ng-model="clienteEdit.email" />
+
+			<div ng-click="insertMode(false); limpaForm();"
+				class="col s2 offset-s2 waves-effect waves-light btn">Cancelar</div>
+			<div ng-click="limpaForm();"
+				class="col s2 offset-s1 waves-effect waves-light btn">Limpar</div>
+			<div ng-click="salvarCliente(clienteEdit); insertMode(false)"
+				class="col s2 offset-s1 waves-effect waves-light btn">Salvar</div>
+		</div>
+
+		<div ng-if="!inserting" ng-click="insertMode(true)"
+			class="col s1 offset-s11 waves-effect waves-light btn">+</div>
+
+
+	</div>
+	<div class="col s12">
+		<table style="width: 100%">
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>CPF</th>
+				<th>Telefone</th>
+				<th>Email</th>
+				<th>Ações</th>
+			</tr>
+			<tr ng-repeat="cliente in clientes">
+				<td>{{cliente.id}}</td>
+				<td>{{cliente.nome}}</td>
+				<td>{{cliente.cpf}}</td>
+				<td>{{cliente.telefone}}</td>
+				<td>{{cliente.email}}</td>
+				<td><img src="img/edit.png" class="btn-crud"
+					title="Editar cliente" ng-click="editarCliente(cliente)"> <img
+					src="img/delete.png" class="btn-crud"
+					ng-click="deleteCliente(cliente.id)" title="Excluir cliente">
+				</td>
+			</tr>
+
+		</table>
+
+
+
+	</div>
+</div>
+
+

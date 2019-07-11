@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="Locadora">
+
+<head>
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="js/index.js"></script>
+<script src="js/clientes.js"></script>
+<script src="js/filmes.js"></script>
+
+<meta charset="UTF-8">
+<title>Locadora</title>
+</head>
+<body ng-controller="LocadoraController">
+
+	<div id="header" class="col s12" style="display: grid;">
+		<div class="col s12" style="text-align: center; margin-top: 0px;">
+			<h3>Locadora</h3>
+		</div>
+		<div class="row" style="margin-bottom: 0px;">
+			<div class="col s4 btn-menu"
+				ng-click="setPaginaAtual('partials/clientes.html')">Clientes</div>
+			<div class="col s4 btn-menu"
+				ng-click="setPaginaAtual('partials/filmes.html')">Filmes</div>
+			<div class="col s4 btn-menu"
+				ng-click="setPaginaAtual('partials/locacoes.html')">Locações</div>
+
+		</div>
+	</div>
+	<div id="contente" class="row">
+		<div ng-include="paginaAtual"></div>
+
+	</div>
+	<div id="footer" class="row">
+		<div>Just a WebSystem</div>
+	</div>
+
+</body>
+</html>

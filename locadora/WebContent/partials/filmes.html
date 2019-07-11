@@ -1,0 +1,61 @@
+
+<link rel="stylesheet" type="text/css" href="css/clientes.css">
+
+<div id="content" class="row" ng-controller="FilmesController">
+	<div class="col s8 offset-s2">
+		<div class="row" ng-if="inserting">
+		
+			<label for="idFilme">ID</label> 
+			<input id="idFilme" type="text"	ng-model="filmeEdit.id" disabled /> 
+			<label for="nomeFilme">Nome</label>
+			<input id="nomeFilme" type="text" ng-model="filmeEdit.nome" /> 
+			<label for="dataFilme">Data</label> 
+			<input id="dataFilme" type="text"	ng-model="filmeEdit.data" /> 
+			<label for="quantidadeFilme">Quantidade</label>
+			<input id="quantidadeFilme" type="text" ng-model="filmeEdit.quantidade" /> 
+			<label for="classificacaoFilme">Classificação</label>
+			<input id="classificacaoFilme" type="text" ng-model="filmeEdit.classificacao" />
+			<label for="valorFilme">Valor</label>
+			<input id="valorFilme" type="text" ng-model="filmeEdit.valor" />
+
+
+			<div ng-click="insertMode(false); limpaForm();"
+				class="col s2 offset-s2 waves-effect waves-light btn">Cancelar</div>
+			<div ng-click="limpaForm();"
+				class="col s2 offset-s1 waves-effect waves-light btn">Limpar</div>
+			<div ng-click="salvarCliente(clienteEdit); insertMode(false)"
+				class="col s2 offset-s1 waves-effect waves-light btn">Salvar</div>
+		</div>
+
+		<div ng-if="!inserting" ng-click="insertMode(true)"
+			class="col s1 offset-s11 waves-effect waves-light btn">+</div>
+
+
+	</div>
+	<div class="col s12">
+		<table style="width: 100%">
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Quantidade</th>
+				<th>Classificacao</th>
+				<th>Valor</th>
+			</tr>
+			<tr ng-repeat="filme in filmes">
+				<td>{{filme.id}}</td>
+				<td>{{filme.nome}}</td>
+				<td>{{filme.qtde}}</td>
+				<td>{{filme.classificacao}}</td>
+				<td>{{filme.valorl}}</td>
+				<td>
+					<img src="img/edit.png" class="btn-crud" title="Editar filme"  ng-click="editarFilme(filme)" >
+					<img src="img/delete.png" class="btn-crud" ng-click="deleteFilme(filme.id)" title="Excluir filme">
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+</div>
+
+
